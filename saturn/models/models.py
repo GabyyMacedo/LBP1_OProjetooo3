@@ -1,7 +1,12 @@
-class Pessoa:
-    def __init__(self, nome, idade):
-        self.nome=nome
-        self.idade=idade
+class Users:
+    def __init__(self, username, senha):
+        self.username=username
+        self.senha=senha
 
-pessoa = Pessoa("Igor", 25)
-p = Pessoa("Gaby", 17)
+Users=[
+    ("user", 123)
+]
+
+def addUSer(username, senha):
+    newUser=Users(username, senha)
+    Users.append(newUser)
