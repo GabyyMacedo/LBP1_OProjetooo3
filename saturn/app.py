@@ -1,8 +1,10 @@
-from flask import Flask
-from controllers.controllers import exemplo
+from flask import Flask, redirect, url_for, render_template
+from controllers.controllers import projeto
 
 app = Flask (__name__)
-app.register_blueprint(exemplo)
+app.secret_key = 'chave_secreta'
+
+app.register_blueprint(projeto)
 
 if __name__  == '__main__':
     app.run(debug=True)
