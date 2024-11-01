@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}" media="screen" />
+    <title>Página Inicial</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Página Inicial</h2>
+        {% if session.get("idUser") %}
+            <a href="{{ url_for('login.logout') }}"><button type="button">Logout</button></a>
+        {% else %}
+            <a href="{{ url_for('login.login') }}"><button type="button">Login</button></a>
+        {% endif %}
+    </div>
+</body>
+</html>
