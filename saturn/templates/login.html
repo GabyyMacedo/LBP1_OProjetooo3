@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" media="screen" />
+
+    <style>
+        .error{
+            color: red;
+        }
+        .info{
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/login" method="POST">
+        <div class="container">
+            <h2>Login</h2>
+            <!--<div class="icones">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-google"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>-->
+            <input type="text" placeholder="Usuário" required>
+            <input type="password" placeholder="Senha" required>
+            <button type="submit">Entrar</button>
+        </div>
+    </form>
+    {% with resposta=get_flashed_messages(with_categories = True)  %}
+        {%if resposta%}
+            {% for category, message in resposta %}
+                <p class="{{category}}">{{message}}</p>
+            {% endfor %}
+        {%endif%}
+    {% endwith %}
+</body>
+</html>
